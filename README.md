@@ -36,10 +36,11 @@ The Cyberpay Flutter SDK is compatible with iOS Apps supporting iOS 11 and above
 
 ### Installing
 
-1. Add the cyberpay flutter sdk to your pubspec.yaml file
+1. Add the cyberpay package to the dependencies section of your `pubspec.yaml` file. The code below makes the Dart API of the `cyberpayflutter` plugin available in your application
 
    ```yaml
-   cyberpayflutter:
+   dependencies:
+    cyberpayflutter: ^0.0.1
    ```
 
 2. Run the following command in your terminal after navigating to your project directory, to download the package

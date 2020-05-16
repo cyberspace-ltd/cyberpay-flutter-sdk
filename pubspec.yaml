@@ -1,8 +1,8 @@
 name: cyberpayflutter
-description: A new flutter plugin project.
+description: A new flutter plugin project for the cyberpay sdk
 version: 0.0.1
 author:
-homepage:
+homepage: https://github.com/cyberspace-ltd/cyberpay-flutter-sdk
 
 environment:
   sdk: ">=2.7.0 <3.0.0"
