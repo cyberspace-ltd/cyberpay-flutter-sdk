@@ -39,14 +39,15 @@ class PaymentActivity : AppCompatActivity() {
             CyberpaySdk.checkoutTransaction(this, transaction!!, object : TransactionCallback() {
                 override fun onSuccess(transaction: Transaction) {
                     val returnIntent = getIntent()
-                    returnIntent.putExtra("result", transaction.reference)
+                    returnIntent.putExtra("success", transaction.reference)
                     setResult(Activity.RESULT_OK, returnIntent)
                     finish()
                 }
 
                 override fun onError(transaction: Transaction, throwable: Throwable) {
-                    Log.e("ERROR", throwable.message)
-                    Toast.makeText(this@PaymentActivity, "CyberPay " + throwable.message, Toast.LENGTH_SHORT).show()
+                    val returnIntent = getIntent()
+                    returnIntent.putExtra("error", throwable.message)
+                    setResult(Activity.RESULT_OK, returnIntent)
                     finish()
                 }
 
@@ -60,12 +61,15 @@ class PaymentActivity : AppCompatActivity() {
                 override fun onSuccess(transaction: Transaction) {
 
                     val returnIntent = getIntent()
-                    returnIntent.putExtra("result", transaction.reference)
+                    returnIntent.putExtra("success", transaction.reference)
                     setResult(Activity.RESULT_OK, returnIntent)
                     finish()
                 }
 
                 override fun onError(transaction: Transaction, throwable: Throwable) {
+                    val returnIntent = getIntent()
+                    returnIntent.putExtra("error", throwable.message)
+                    setResult(Activity.RESULT_OK, returnIntent)
                     finish()
                 }
 

@@ -32,7 +32,7 @@ public class CyberpayflutterPlugin: FlutterPlugin, MethodCallHandler, ActivityAw
   private var activity: Activity? = null
   private var applicationContext: Context? = null
   private var RESULT_CODE = 1001
-
+  private var pluginResult: Result? = null
   override fun onAttachedToEngine(@NonNull flutterPluginBinding: FlutterPlugin.FlutterPluginBinding) {
     this.applicationContext = flutterPluginBinding.applicationContext;
     onAttachedToEngine(flutterPluginBinding.applicationContext, flutterPluginBinding.binaryMessenger)
@@ -63,6 +63,7 @@ public class CyberpayflutterPlugin: FlutterPlugin, MethodCallHandler, ActivityAw
     channel.setMethodCallHandler(this)
   }
   override fun onMethodCall(@NonNull call: MethodCall, @NonNull result: Result) {
+    pluginResult = result
     if (call.method == "getPlatformVersion") {
       result.success("Android ${android.os.Build.VERSION.RELEASE}")
     }
@@ -81,8 +82,6 @@ public class CyberpayflutterPlugin: FlutterPlugin, MethodCallHandler, ActivityAw
       intent.putExtra("amount", amount)
 
       activity!!.startActivityForResult(intent, RESULT_CODE)
-      result.success(null)
-
     }
     else if (call.method == "checkoutRef") {
       val integrationKey = call.argument<String>("integrationKey").toString()
@@ -95,7 +94,6 @@ public class CyberpayflutterPlugin: FlutterPlugin, MethodCallHandler, ActivityAw
       intent.putExtra("reference", reference)
       intent.putExtra("referenceMode", true)
       activity!!.startActivityForResult(intent, RESULT_CODE)
-      result.success(null)
     }
      else {
       result.notImplemented()
@@ -105,8 +103,17 @@ public class CyberpayflutterPlugin: FlutterPlugin, MethodCallHandler, ActivityAw
   override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?): Boolean {
     if (requestCode == RESULT_CODE) {
       if (resultCode == Activity.RESULT_OK) {
-        val result = data!!.getStringExtra("result")
-        channel.invokeMethod("onSuccess", result)
+        if (data!!.hasExtra("success")){
+          val result = data.getStringExtra("success")
+          pluginResult!!.success(result)
+        }
+        else if (data.hasExtra("error")){
+          val result = data.getStringExtra("error")
+          pluginResult!!.error("CYBERPAY_ERROR", result,null )
+        }
+        else {
+          pluginResult!!.notImplemented()
+        }
         return true
       }
     }
