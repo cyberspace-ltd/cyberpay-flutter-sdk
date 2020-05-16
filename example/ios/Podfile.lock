@@ -1,0 +1,76 @@
+PODS:
+  - cyberpayflutter (0.0.1):
+    - cyberpaysdk
+    - Flutter
+  - cyberpaysdk (0.1.5):
+    - FittedSheets (~> 1.4.5)
+    - MaterialComponents/BottomSheet (~> 94.4.0)
+    - RxCocoa (~> 5.0.1)
+    - RxSwift (~> 5.0.1)
+  - FittedSheets (1.4.6)
+  - Flutter (1.0.0)
+  - MaterialComponents/BottomSheet (94.4.0):
+    - MaterialComponents/Elevation
+    - MaterialComponents/private/KeyboardWatcher
+    - MaterialComponents/private/Math
+    - MaterialComponents/ShadowElevations
+    - MaterialComponents/ShadowLayer
+    - MaterialComponents/ShapeLibrary
+    - MaterialComponents/Shapes
+  - MaterialComponents/Elevation (94.4.0):
+    - MaterialComponents/private/Color
+    - MaterialComponents/private/Math
+  - MaterialComponents/private/Application (94.4.0)
+  - MaterialComponents/private/Color (94.4.0)
+  - MaterialComponents/private/KeyboardWatcher (94.4.0):
+    - MaterialComponents/private/Application
+  - MaterialComponents/private/Math (94.4.0)
+  - MaterialComponents/ShadowElevations (94.4.0)
+  - MaterialComponents/ShadowLayer (94.4.0):
+    - MaterialComponents/ShadowElevations
+  - MaterialComponents/ShapeLibrary (94.4.0):
+    - MaterialComponents/private/Math
+    - MaterialComponents/Shapes
+  - MaterialComponents/Shapes (94.4.0):
+    - MaterialComponents/private/Color
+    - MaterialComponents/private/Math
+    - MaterialComponents/ShadowLayer
+  - RxCocoa (5.0.1):
+    - RxRelay (~> 5)
+    - RxSwift (~> 5)
+  - RxRelay (5.1.1):
+    - RxSwift (~> 5)
+  - RxSwift (5.0.1)
+
+DEPENDENCIES:
+  - cyberpayflutter (from `.symlinks/plugins/cyberpayflutter/ios`)
+  - Flutter (from `Flutter`)
+
+SPEC REPOS:
+  trunk:
+    - cyberpaysdk
+    - FittedSheets
+    - MaterialComponents
+    - RxCocoa
+    - RxRelay
+    - RxSwift
+
+EXTERNAL SOURCES:
+  cyberpayflutter:
+    :path: ".symlinks/plugins/cyberpayflutter/ios"
+  Flutter:
+    :path: Flutter
+
+SPEC CHECKSUMS:
+  cyberpayflutter: 2919176e41e0bfad4b1379ff80dca9c228f4003e
+  cyberpaysdk: bb0d56d9e4eb6ce36d20b6208901fea6e27dd181
+  FittedSheets: 7f37fee2567d15dcde391f31eccbffb660ddebf0
+  Flutter: 0e3d915762c693b495b44d77113d4970485de6ec
+  MaterialComponents: 3ee5327e02dc3f34df48c68205b5fd7dce171744
+  RxCocoa: e741b9749968e8a143e2b787f1dfbff2b63d0a5c
+  RxRelay: d77f7d771495f43c556cbc43eebd1bb54d01e8e9
+  RxSwift: e2dc62b366a3adf6a0be44ba9f405efd4c94e0c4
+
+PODFILE CHECKSUM: 03ca1bf1c64dc8b19c6e4677c8bd060771e18859
+
+COCOAPODS: 1.9.1
