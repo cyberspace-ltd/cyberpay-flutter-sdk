@@ -1,21 +1,25 @@
-# cyberpayflutter
+# Cyberpay
+
+[![pub package](https://img.shields.io/pub/v/cyberpayflutter.svg)](https://pub.dev/packages/cyberpayflutter)
 
 # Introduction
 
-Cyberpay provides you with the most convenient and fastest process of making and collecting payments from your customers all over the world
+Cyberpay provides you with the most convenient and fastest process of making and collecting payments from your customers within Nigeria
 
----
+<table>
+  <tr >
+    <td>
+    <img src="https://raw.githubusercontent.com/cyberspace-ltd/cyberpay-androidx/dev/cyberpaysdk/src/main/java/com/cyberspace/cyberpaysdk/utils/screenshot/screenrecord.gif"  />
+    </td>
+    <td>
+    <img src="https://raw.githubusercontent.com/cyberspace-ltd/cyberpay-androidx/dev/cyberpaysdk/src/main/java/com/cyberspace/cyberpaysdk/utils/screenshot/secure3dpayment.gif" />
+    </td>
+     <td>
+   <img src="https://raw.githubusercontent.com/cyberspace-ltd/cyberpay-androidx/dev/cyberpaysdk/src/main/java/com/cyberspace/cyberpaysdk/utils/screenshot/bankpayment.gif"  />
+    </td>
+  </tr>
+</table>
 
-
-|                     CYBERPAY MASTER CARD                           |                       CYBERPAY  SECURE 3D                             |                      CYBERPAY BANK PAYMENT                | 
-| :----------------------------------------------------------------: | :-------------------------------------------------------------------: |  :------------------------------------------------------: |
-| 
-<img src="https://raw.githubusercontent.com/cyberspace-ltd/cyberpay-androidx/dev/cyberpaysdk/src/main/java/com/cyberspace/cyberpaysdk/utils/screenshot/screenrecord.gif" width="30%" />
- | 
-<img src="https://raw.githubusercontent.com/cyberspace-ltd/cyberpay-androidx/dev/cyberpaysdk/src/main/java/com/cyberspace/cyberpaysdk/utils/screenshot/secure3dpayment.gif" width="30%" />
- |
-<img src="https://raw.githubusercontent.com/cyberspace-ltd/cyberpay-androidx/dev/cyberpaysdk/src/main/java/com/cyberspace/cyberpaysdk/utils/screenshot/bankpayment.gif" width="30%" />
- |
 
 
 
@@ -40,7 +44,7 @@ The Cyberpay Flutter SDK is compatible with iOS Apps supporting iOS 11 and above
 
    ```yaml
    dependencies:
-    cyberpayflutter: ^0.0.1
+    cyberpayflutter: ^1.0.0
    ```
 
 2. Run the following command in your terminal after navigating to your project directory, to download the package

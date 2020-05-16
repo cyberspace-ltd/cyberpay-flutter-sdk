@@ -1,7 +1,6 @@
 name: cyberpayflutter
-description: A new flutter plugin project for the cyberpay sdk
-version: 0.0.1
-author:
+description: The mobile SDK will serve as an easy to use library to quickly integrate Cyberpay to your mobile application. The will serve as a wrapper on the existing Cyberpay web services and create a mobile entry point for making both Card and Bank transactions. The SDK will provide custom views/layouts for checkout, pin, otp, sucured3d as well as handles all business logics taking the bulk of the job and exposing just three call backs representing the status of the transaction.
+version: 1.0.0
 homepage: https://github.com/cyberspace-ltd/cyberpay-flutter-sdk
 
 environment:
@@ -32,7 +31,6 @@ flutter:
         pluginClass: CyberpayflutterPlugin
       ios:
         pluginClass: CyberpayflutterPlugin
-
   # To add assets to your plugin package, add an assets section, like this:
   # assets:
   #   - images/a_dot_burr.jpeg
@@ -43,7 +41,6 @@ flutter:
   #
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
-
   # To add custom fonts to your plugin package, add a fonts section here,
   # in this "flutter" section. Each entry in this list should have a
   # "family" key with the font family name, and a "fonts" key with a

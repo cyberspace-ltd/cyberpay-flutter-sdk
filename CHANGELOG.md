@@ -11,3 +11,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Includes payment using bank account
 - Includes payment using Cards (Verve, Mastercard, Visa)
 
+## [1.0.0] - 2020-05-16
+### Added
+- Included code documentation [@David Ehigiator](https://github.com/davidehigiator).
+- Official release mode
