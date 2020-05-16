@@ -1,12 +1,12 @@
 PODS:
   - cyberpayflutter (0.0.1):
-    - cyberpaysdk
+    - cyberpaysdk (~> 1.0.0)
     - Flutter
-  - cyberpaysdk (0.1.5):
-    - FittedSheets (~> 1.4.5)
+  - cyberpaysdk (1.0.0):
+    - FittedSheets (~> 1.4.6)
     - MaterialComponents/BottomSheet (~> 94.4.0)
-    - RxCocoa (~> 5.0.1)
-    - RxSwift (~> 5.0.1)
+    - RxCocoa (~> 5.1.1)
+    - RxSwift (~> 5.1.1)
   - FittedSheets (1.4.6)
   - Flutter (1.0.0)
   - MaterialComponents/BottomSheet (94.4.0):
@@ -35,12 +35,12 @@ PODS:
     - MaterialComponents/private/Color
     - MaterialComponents/private/Math
     - MaterialComponents/ShadowLayer
-  - RxCocoa (5.0.1):
+  - RxCocoa (5.1.1):
     - RxRelay (~> 5)
     - RxSwift (~> 5)
   - RxRelay (5.1.1):
     - RxSwift (~> 5)
-  - RxSwift (5.0.1)
+  - RxSwift (5.1.1)
 
 DEPENDENCIES:
   - cyberpayflutter (from `.symlinks/plugins/cyberpayflutter/ios`)
@@ -62,14 +62,14 @@ EXTERNAL SOURCES:
     :path: Flutter
 
 SPEC CHECKSUMS:
-  cyberpayflutter: 2919176e41e0bfad4b1379ff80dca9c228f4003e
-  cyberpaysdk: bb0d56d9e4eb6ce36d20b6208901fea6e27dd181
+  cyberpayflutter: a9833d76950268fb814c6549498b3c68b5d78441
+  cyberpaysdk: 0d1e6246f4c542e888c91c09bd41adc5c2d0c25b
   FittedSheets: 7f37fee2567d15dcde391f31eccbffb660ddebf0
   Flutter: 0e3d915762c693b495b44d77113d4970485de6ec
   MaterialComponents: 3ee5327e02dc3f34df48c68205b5fd7dce171744
-  RxCocoa: e741b9749968e8a143e2b787f1dfbff2b63d0a5c
+  RxCocoa: 32065309a38d29b5b0db858819b5bf9ef038b601
   RxRelay: d77f7d771495f43c556cbc43eebd1bb54d01e8e9
-  RxSwift: e2dc62b366a3adf6a0be44ba9f405efd4c94e0c4
+  RxSwift: 81470a2074fa8780320ea5fe4102807cb7118178
 
 PODFILE CHECKSUM: 03ca1bf1c64dc8b19c6e4677c8bd060771e18859
 

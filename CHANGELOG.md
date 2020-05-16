@@ -19,3 +19,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [1.0.1] - 2020-05-16
 ### Added
 - Minor documentation fixes
+
+
+## [1.0.2] - 2020-05-16
+### Added
+- Updated Cyberpay SDK dependencies to remove all instance of the depreciated UIWebView
