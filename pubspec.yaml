@@ -1,6 +1,6 @@
 name: cyberpayflutter
-description: The mobile SDK will serve as an easy to use library to quickly integrate Cyberpay to your mobile application. The will serve as a wrapper on the existing Cyberpay web services and create a mobile entry point for making both Card and Bank transactions. The SDK will provide custom views/layouts for checkout, pin, otp, sucured3d as well as handles all business logics taking the bulk of the job and exposing just three call backs representing the status of the transaction.
-version: 1.0.0
+description: The Cyberpay Flutter SDK will serve as an easy to use the library to quickly integrate payment to your mobile application.
+version: 1.0.1
 homepage: https://github.com/cyberspace-ltd/cyberpay-flutter-sdk
 
 environment:

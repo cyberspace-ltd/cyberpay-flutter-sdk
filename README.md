@@ -44,7 +44,7 @@ The Cyberpay Flutter SDK is compatible with iOS Apps supporting iOS 11 and above
 
    ```yaml
    dependencies:
-    cyberpayflutter: ^1.0.0
+    cyberpayflutter: ^1.0.1
    ```
 
 2. Run the following command in your terminal after navigating to your project directory, to download the package
