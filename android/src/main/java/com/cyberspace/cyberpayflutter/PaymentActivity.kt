@@ -27,13 +27,13 @@ class PaymentActivity : AppCompatActivity() {
             integrationKey = intent.getStringExtra("integrationKey")
             liveMode = intent.getBooleanExtra("mode", false)
             isTransactionFromServer = intent.getBooleanExtra("referenceMode", false)
-            customerEmail = intent.getStringExtra("customerEmail")
             amount = intent.getDoubleExtra("amount", 0.0)
 
             CyberpaySdk.initialiseSdk(integrationKey, if (liveMode) Mode.Live else Mode.Debug)
             CyberpaySdk.merchantLogo = resources.getDrawable(R.drawable.ic_cyberpay_logo)
         }
         if (!isTransactionFromServer) {
+            customerEmail = intent.getStringExtra("customerEmail")
             transaction!!.amount = amount
             transaction!!.customerEmail = customerEmail
             CyberpaySdk.checkoutTransaction(this, transaction!!, object : TransactionCallback() {
