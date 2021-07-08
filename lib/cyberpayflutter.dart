@@ -4,9 +4,9 @@
 
 import 'dart:async';
 
-import 'package:cyberpayflutter/model/cyberpay_result.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:cyberpayflutter/model/cyberpay_result.dart';
 
 /// API for processing payment using the Cyberpay SDK
 class Cyberpayflutter {
@@ -16,17 +16,17 @@ class Cyberpayflutter {
   /// This constructor is only used for testing and shouldn't be accessed by
   /// users of the plugin. It isn't useful for this plugin.
   @visibleForTesting
-  static Future<String> get platformVersion async {
-    final String version = await _channel.invokeMethod('getPlatformVersion');
+  static Future<String?> get platformVersion async {
+    final String? version = await _channel.invokeMethod('getPlatformVersion');
     return version;
   }
 
   /// Function to make a new payment. Returns a CyberpayResult class.
   static Future<CyberpayResult> makePayment({
-    @required String integrationKey,
-    @required double amount,
-    @required String customerEmail,
-    @required bool liveMode,
+    required String integrationKey,
+    required double amount,
+    required String customerEmail,
+    required bool liveMode,
   }) async {
     final Map<String, dynamic> params = <String, dynamic>{
       "integrationKey": integrationKey,
@@ -36,7 +36,7 @@ class Cyberpayflutter {
     };
 
     try {
-      final String result = await _channel.invokeMethod('checkout', params);
+      final String? result = await _channel.invokeMethod('checkout', params);
       var _paymentReference = '$result';
       return CyberpayResult(
           isPaymentSuccessFul: true, paymentReference: _paymentReference);
@@ -50,9 +50,9 @@ class Cyberpayflutter {
   /// Function to make a new payment, when transaction has already been initated from the server.
   /// Returns a CyberpayResult class.
   static Future<CyberpayResult> makePaymentWithReference({
-    @required String integrationKey,
-    @required String reference,
-    @required bool liveMode,
+    required String integrationKey,
+    required String reference,
+    required bool liveMode,
   }) async {
     final Map<String, dynamic> params = <String, dynamic>{
       "integrationKey": integrationKey,

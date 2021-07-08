@@ -1,10 +1,11 @@
-import 'package:flutter/material.dart';
 import 'dart:async';
 
+import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:cyberpayflutter/cyberpayflutter.dart';
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
   runApp(MyApp());
 }
 
@@ -14,19 +15,23 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
+  bool liveMode = false;
+  String transactionRef = "";
+  final _formKey = GlobalKey<FormState>();
+
   @override
   void initState() {
     super.initState();
   }
 
-
   // Platform messages are asynchronous, so we initialize in an async method.
   Future<void> makePaymentWithReference() async {
     try {
       var result = await Cyberpayflutter.makePaymentWithReference(
-          integrationKey: "MERCHANT_INTEGRATION_KEY",
-          reference: "REFERENCE_GOTTEN_FROM_SERVER",
-          liveMode: false);
+        integrationKey: "005e84081f9f408586de873338fa54b7",
+        reference: transactionRef.trim(),
+        liveMode: liveMode,
+      );
       if (result.isPaymentSuccessFul) {
         print(
             "Payment is Successfult, Your Payment Reference: ${result.paymentReference}");
@@ -42,9 +47,9 @@ class _MyAppState extends State<MyApp> {
   Future<void> makeSamplePayment() async {
     try {
       var result = await Cyberpayflutter.makePayment(
-          integrationKey: "MERCHANT_INTEGRATION_KEY",
+          integrationKey: "005e84081f9f408586de873338fa54b7",
           amount: 10000,
-          customerEmail: "CUSTOMER_EMAIL",
+          customerEmail: "sample@demoemail.com",
           liveMode: false);
       if (result.isPaymentSuccessFul) {
         print(
@@ -66,18 +71,70 @@ class _MyAppState extends State<MyApp> {
         appBar: AppBar(
           title: const Text('A demo Cyberpay Flutter Payment'),
         ),
-        body: Center(
-            child: MaterialButton(
-          child: Text('Pay Demo N100'),
-          elevation: 8,
-          color: Colors.redAccent,
-          colorBrightness: Brightness.dark,
-          highlightElevation: 2,
-          padding: EdgeInsets.all(20.0),
-          onPressed: () {
-            makeSamplePayment();
-          },
-        )),
+        body: Padding(
+          padding: const EdgeInsets.all(32.0),
+          child: Center(
+            child: Form(
+              key: _formKey,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      liveMode ? Text("Production") : Text("Staging"),
+                      Switch(
+                          value: liveMode,
+                          onChanged: (bool newValue) {
+                            setState(() {
+                              liveMode = newValue;
+                            });
+                          })
+                    ],
+                  ),
+                  SizedBox(height: 16),
+                  MaterialButton(
+                    child: Text('Pay Demo N100'),
+                    onPressed: () => makeSamplePayment(),
+                    elevation: 8,
+                    highlightElevation: 2,
+                    color: Colors.redAccent,
+                    padding: EdgeInsets.all(20.0),
+                    colorBrightness: Brightness.dark,
+                  ),
+                  SizedBox(height: 32),
+                  TextFormField(
+                    validator: (value) => value!.isEmpty ? "Required" : null,
+                    decoration: InputDecoration(
+                      labelText: "Transaction Reference",
+                      hintText: "Enter Transaction Reference",
+                    ),
+                    onChanged: (value) {
+                      setState(() {
+                        transactionRef = value;
+                      });
+                    },
+                  ),
+                  SizedBox(height: 16),
+                  MaterialButton(
+                    child: Text('Pay Demo N100 with reference'),
+                    onPressed: () {
+                      if (_formKey.currentState!.validate()) {
+                        makePaymentWithReference();
+                      }
+                    },
+                    elevation: 8,
+                    highlightElevation: 2,
+                    color: Colors.redAccent,
+                    padding: EdgeInsets.all(20.0),
+                    colorBrightness: Brightness.dark,
+                  ),
+                ],
+              ),
+            ),
+          ),
+        ),
       ),
     );
   }

@@ -1,11 +1,11 @@
 name: cyberpayflutter
 description: The Cyberpay Flutter SDK will serve as an easy to use the library to quickly integrate payment to your mobile application.
-version: 1.0.3
+version: 1.0.4
 homepage: https://github.com/cyberspace-ltd/cyberpay-flutter-sdk
 
 environment:
-  sdk: ">=2.7.0 <3.0.0"
-  flutter: ">=1.10.0"
+  sdk: ">=2.13.4 <3.0.0"
+  flutter: ">=2.2.3"
 
 dependencies:
   flutter:
