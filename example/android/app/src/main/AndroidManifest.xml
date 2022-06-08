@@ -7,9 +7,13 @@
          FlutterApplication and put your custom class here. -->
     
     <uses-permission android:name="android.permission.INTERNET"></uses-permission>
+
+    <meta-data
+        android:name="flutterEmbedding"
+        android:value="2" />
     
     <application
-        android:name="io.flutter.app.FlutterApplication"
+        android:name="${applicationName}"
         android:label="cyberpayflutter_example"
         android:icon="@mipmap/ic_launcher">
         <activity

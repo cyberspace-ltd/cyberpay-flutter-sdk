@@ -2,7 +2,7 @@ group 'com.cyberspace.cyberpayflutter'
 version '1.0-SNAPSHOT'
 
 buildscript {
-    ext.kotlin_version = '1.3.50'
+    ext.kotlin_version = '1.6.0'
     repositories {
         google()
         jcenter()
@@ -42,7 +42,7 @@ android {
 
 dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
-    implementation 'androidx.constraintlayout:constraintlayout:+'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
     implementation 'androidx.appcompat:appcompat:1.1.0'
     implementation 'com.github.cyberspace-ltd:cyberpay-androidx:0.3.0'
     implementation 'android.arch.lifecycle:common-java8:1.1.1'

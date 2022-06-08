@@ -13,10 +13,10 @@ import com.cyberspace.cyberpaysdk.model.Transaction
 class PaymentActivity : AppCompatActivity() {
 
     var transaction: Transaction? = null
-    private var integrationKey: String = ""
+    private var integrationKey: String? = ""
     private var liveMode: Boolean = false
     private var isTransactionFromServer = false
-    private var customerEmail: String = ""
+    private var customerEmail: String? = ""
     private var amount = 0.0
     
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -29,13 +29,13 @@ class PaymentActivity : AppCompatActivity() {
             isTransactionFromServer = intent.getBooleanExtra("referenceMode", false)
             amount = intent.getDoubleExtra("amount", 0.0)
 
-            CyberpaySdk.initialiseSdk(integrationKey, if (liveMode) Mode.Live else Mode.Debug)
+            integrationKey?.let { CyberpaySdk.initialiseSdk(it, if (liveMode) Mode.Live else Mode.Debug) }
             CyberpaySdk.merchantLogo = resources.getDrawable(R.drawable.ic_cyberpay_logo)
         }
         if (!isTransactionFromServer) {
             customerEmail = intent.getStringExtra("customerEmail")
             transaction!!.amount = amount
-            transaction!!.customerEmail = customerEmail
+            transaction!!.customerEmail = customerEmail.toString()
             CyberpaySdk.checkoutTransaction(this, transaction!!, object : TransactionCallback() {
                 override fun onSuccess(transaction: Transaction) {
                     val returnIntent = getIntent()
@@ -56,7 +56,7 @@ class PaymentActivity : AppCompatActivity() {
         } else {
             val reference = intent.getStringExtra("reference")
 //            transaction!!.reference = UUID.randomUUID().toString()
-            transaction!!.reference = reference
+            transaction!!.reference = reference.toString()
             CyberpaySdk.completeCheckoutTransaction(this, transaction!!, object : TransactionCallback() {
                 override fun onSuccess(transaction: Transaction) {
 
