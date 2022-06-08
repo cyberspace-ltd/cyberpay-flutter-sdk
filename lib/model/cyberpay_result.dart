@@ -4,11 +4,14 @@ class CyberpayResult {
   bool isPaymentSuccessFul;
 
   /// The payment reference
-  String paymentReference;
+  String? paymentReference;
 
   /// The error message returned when a payment fails. This returns null when payment is successful
-  String errorMessage;
+  String? errorMessage;
 
-  CyberpayResult(
-      {this.isPaymentSuccessFul, this.paymentReference, this.errorMessage});
+  CyberpayResult({
+    required this.isPaymentSuccessFul,
+    this.paymentReference,
+    this.errorMessage,
+  });
 }
